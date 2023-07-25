@@ -1,28 +1,21 @@
 import validator from './validator.js';
 
-console.log(validator);
-
-
-//Fazer com que o DOM seja completamente carregado (DOM é uma interface de programação para os documentos HTML e XML. Representa a página de forma que os programas possam alterar a estrutura do documento, alterar o estilo e conteúdo. O DOM representa o documento com nós e objetos, dessa forma, as linguagens de programação podem se conectar à página e fazer alterações.) 
-document.addEventListener('DOMContentLoaded', function() {
-  // Encontrar o botão de verificação pelo ID "verifyButton"
-  const verifyButton = document.getElementById('verifyButton');
-  // Quando o botão for clicado, a função "checkCardValidity" será chamada
-  verifyButton.addEventListener('click', checkCardValidity);
- 
-});
+// Encontrar o botão de verificação pelo ID "verifyButton"
+const verifyButton = document.getElementById('verifyButton');
+// Quando o botão for clicado, a função "checkCardValidity" será chamada
+verifyButton.addEventListener('click', checkCardValidity);
 
 //Interação do usuário no DOM, quando o DOM é carregado, encontra o botão "verifyButton", quando clica, chama a função checkCardValidity
 function checkCardValidity() {
   //Obter a entrada do nome
   const cardHolder = document.getElementById("cardHolder").value; //.value é usado para acessar o valor atual inserido (campos de entrada)
-  //Obter a entrada do numero do cartão / // Substitui tudo que não for dígito por vazio
-  const cardNumber = document.getElementById("cardNumber").value.replace(/\D/g, ''); 
+  //Obter a entrada do numero do cartão 
+  const cardNumber = document.getElementById("cardNumber").value; 
   //Verifica se o cartão é válido usando a função validateCardNumber. "Chame a função validateCardNumber com o valor da variável cardNumber como argumento e atribua o resultado retornado por essa função à variável isValid."
-  const Valid = validateCardNumber(cardNumber);
+  const valid = validateCardNumber(cardNumber);
   // Obter o resultado pelo ID result 
   const result = document.getElementById("result");
-  // variável criada para construir o número mascarado
+  
  
   
   // Verifica se os campos estão preenchidos. Se um ou outro não estiver, aparece o aviso.   
@@ -31,8 +24,8 @@ function checkCardValidity() {
     return;
   }
 
-  
-  if (Valid) {
+  // Exibe a mensagem de resultado (válido ou não) com o nome e número do cartão mascarado
+  if (valid) {
     const maskedNumber_1 = maskCardNumber(cardNumber);
 
     result.innerHTML = "Olá, " + cardHolder + "!" + " O cartão " + maskedNumber_1 + " é válido. Boas compras!";
@@ -42,30 +35,34 @@ function checkCardValidity() {
     result.innerHTML = "Olá, " + cardHolder + "!" + " O cartão " + maskedNumber_1 + " é inválido, por favor tente outro cartão.";
   }
 }
-
-  
+// Algoritmo de Luhn
 function validateCardNumber(cardNumber) {
-  // Validação para garantir que o número do cartão tenha exatamente 16 dígitos
-  if (/^\d{16}$/.test(cardNumber))
-    var sum = 0;
+  
+  // Inicializar a variável "sum" com valor 0. Ela será usada para somar os dígitos do cartão.
+  let sum = 0;
+  // Inicializar a variável "double" com valor false (false porque o primeiro numero de trás para frente não precisa ser duplicado). Essa variável indica se o próximo dígito deve ser duplicado.
   let double = false;
-
+  //  inicializar a variável i com o valor do comprimento da sequência cardNumber menos 1, então length - 1 dá o índice do último dígito da sequência do número. i >= 0;: Esta é a condição que deve ser verdadeira para que o loop continue a ser executado. i-- Esta é a atualização que ocorre após cada iteração do loop. Vai diminuir 1 do valor de i em cada iteração, o que significa que o loop está retrocedendo do último dígito até o primeiro dígito do número.
   for (let i = cardNumber.length - 1; i >= 0; i--) {
+    // cardNumber.charAt(i): O método charAt(i) é usado para obter o caractere na posição i da sequência cardNumber. Então i representa a posição do dígito atual que estamos analisando na sequência. parseInt para converter para número inteiro.
     let digit = parseInt(cardNumber.charAt(i));
-
+    // Se double for true, vai multiplicar o valor por 2 e armazenar em digit
     if (double) {
       digit *= 2;
+      // Se o valor armazenado em digit for > que 9, vai diminuir 9 (é o mesmo que somar os dois digitos que são maiores que 9)
       if (digit > 9) {
         digit -= 9;
       }
     }
-
+    // O dígito atual (seja ele duplicado ou não) é somado ao valor acumulado sum. Essa variável sum é usada para armazenar a soma de todos os dígitos após a aplicação das regras do algoritmo de Luhn.
     sum += digit;
+    // Após processar um dígito, a variável double é alternada para o valor oposto. Se estava como true, agora será definida como false, e vice-versa. Isso garante que o próximo dígito seja tratado de forma diferente do atual.
     double = !double;
   }
-
+  // verifica se o valor acumulado sum é um múltiplo de 10. Se for verdadeiro (ou seja, sum % 10 é igual a 0), o número de cartão de crédito é considerado válido, e a função retorna true. Caso contrário, a função retorna false.
   return sum % 10 === 0;
 }
+
 // Substituir os dígitos por "#" exceto os últimos 4 dígitos
 function maskCardNumber(cardNumber) {
 // cria uma variável iniciada com uma string vazia. Será usada para construir o número mascarado
@@ -82,6 +79,9 @@ function maskCardNumber(cardNumber) {
   // A função retorna o número do cartão completamente mascarado, onde os dígitos foram substituídos por "#", menos os últimos 4 que permanecem visíveis.
   return maskedNumber_1;
 }
+
+console.log(validator); 
+
   
   
   
