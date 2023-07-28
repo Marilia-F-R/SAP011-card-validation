@@ -3,7 +3,8 @@
 
 Cartão de crédito válido
 
- <img src="img/Captura de tela 2023-07-28 150352.png" alt="Print tela inicial">
+![Captura de tela 2023-07-28 150352](https://github.com/Marilia-F-R/SAP011-card-validation/assets/127791496/5aad383b-bb29-40a1-b8c5-5fd1778de850)
+
 
 
 ## 2. Descrição do projeto
