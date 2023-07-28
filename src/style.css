@@ -3,18 +3,21 @@
     margin:0; padding:0;
     box-sizing: border-box;
     outline: none; border: none;
-    text-decoration: none;
-    text-transform: uppercase;
+
 }
 
+h2 {
+    color: rgb(51, 51, 109);
+}
 .container{
     min-height: 100vh;
-    background: #eee;
+    background:linear-gradient(10deg, rgb(145, 179, 234), rgb(198, 213, 169));
     display: flex;
     align-items: center;
     justify-content: center;
     flex-flow: column;
     padding-bottom: 80px;
+    
 }
 
 .form{
@@ -24,10 +27,11 @@
     padding: 20px;
     width: 600px;
     padding-top: 20px;
+    text-transform: uppercase;
 }
 
 .inputBox{
-    margin-top: 20px;
+    margin-top: 20px; 
 }
 
  label{
@@ -36,12 +40,13 @@
     padding-bottom: 5px;
 }
 
- .inputBox input{
+ .inputBox input {
     width: 100%;
     padding: 10px;
     border-radius: 10px;
     border:1px solid rgba(0,0,0,.3);
     color:#444;
+    
 }
 
 
@@ -54,7 +59,7 @@
     color:#fff;
     border-radius: 10px;
     cursor: pointer;
-    
+    text-transform: uppercase;
 }
 
 .cardContainer {
@@ -64,6 +69,7 @@
     border-radius: 10px;
     padding: 30px;
     color:#fff;
+   
 }
 
 
