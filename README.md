@@ -3,6 +3,7 @@
 
 Cartão de crédito válido
 
+ <img src="img/Captura de tela 2023-07-28 150352.png" alt="Print tela inicial">
 
 
 ## 2. Descrição do projeto
