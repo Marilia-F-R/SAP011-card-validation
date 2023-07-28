@@ -31,9 +31,9 @@ Se o usuário clicar em verificar sem preencher os campos de nome e cartão, apa
 
 ## 4. Tecnologias utilizadas
 
-HTML
-CSS
-JavaScript
+* HTML
+* CSS
+* JavaScript
 
 
 ## 5. Pessoas Desenvolvedoras do Projeto
