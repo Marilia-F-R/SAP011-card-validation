@@ -3,7 +3,7 @@
 
 Cartão de crédito válido
 
-
+![Captura de tela 2023-07-28 150352](https://github.com/Marilia-F-R/SAP011-card-validation/assets/127791496/5aad383b-bb29-40a1-b8c5-5fd1778de850)
 
 
 
@@ -29,12 +29,18 @@ Se o usuário clicar em verificar sem preencher os campos de nome e cartão, apa
 * Familiaridade com novos conceitos.
 
 
-## 4. Tecnologias utilizadas
+## 4. Testes
+
+![Captura de tela 2023-07-28 163544](https://github.com/Marilia-F-R/SAP011-card-validation/assets/127791496/ccae5228-4b88-419f-9ff0-687182da4001)
+
+
+
+## 5. Tecnologias utilizadas
 
 * HTML
 * CSS
 * JavaScript
 
 
-## 5. Pessoas Desenvolvedoras do Projeto
+## 6. Pessoas Desenvolvedoras do Projeto
 * Marilia F. Rudolf
